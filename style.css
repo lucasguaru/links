@@ -1,5 +1,15 @@
+
+.icone {
+    float: right;
+    width: 17px;
+    margin-left: 10px;
+}
+
+.pointer {
+    cursor: pointer;
+}
 input.pesquisa {
-    border-radius: 20px;
+    border-radius: 0px;
     height: 30px;
 }
 
@@ -57,3 +67,22 @@ input[type=text].pesquisa {
     margin: auto;
     padding-top: 60px;
 }
+/* unvisited link */
+a:link {
+    color: red;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: green;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: hotpink;
+  }
+  
+  /* selected link */
+  a:active {
+    color: blue;
+  }

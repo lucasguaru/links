@@ -15,11 +15,34 @@
             <input class="pesquisa" type="text" ng-model="inputSearch"> <input class="pesquisa" type="button" value="Pesquisar">
             <input class="adicionar" type="button" value="Adicionar" ng-click="homeCtrl.adicionarItem()">
         </div>
+        <div class="adicionar">
+            <div class="card" ng-if="homeCtrl.emEdicao">
+                <div class="tituloLink">
+                    <label for="titulo">Título do Link: </label>
+                    <input id="titulo" name="titulo" ng-model="homeCtrl.linkEdicao.titulo">
+                </div>
+                <div class="descricao">
+                    <label for="descricao">Descrição do Link: </label>
+                    <input id="descricao" name="descricao" ng-model="homeCtrl.linkEdicao.descricao">
+                </div>
+                <div class="url">
+                    <label for="url">URL do Link: </label>
+                    <input id="url" name="url" ng-model="homeCtrl.linkEdicao.url">
+                </div>
+                <div class="botao">
+                    <input class="adicionar" type="button" value="Adicionar" ng-click="homeCtrl.salvar()">
+                </div>
+            </div>
+        </div>
         <div class="resultado">
-            <div class="card" ng-repeat="item in homeCtrl.listaLinks | filter: inputSearch track by $index">
-                <div class="titulo">{{item.titulo}}</div>
-                <div class="descricao">{{item.descricao}}</div>
-                <div class="url">{{item.url}}</div>
+            <div class="card" ng-repeat="link in homeCtrl.listaLinks | filter: inputSearch track by $index">
+                <div class="titulo">
+                    <a href="{{link.url}}" target="_blank">{{link.titulo}}</a>
+                    <img class="icone pointer" ng-click="homeCtrl.editar(link)" src="img/editar.png">
+                    <img class="icone pointer" ng-click="homeCtrl.excluir(link)" src="img/excluir.svg">
+                </div>
+                <div class="descricao">{{link.descricao}}</div>
+                <div class="url"><a href="{{link.url}}" target="_blank">{{link.url}}</a></div>
             </div>
         </div>
     </div>
