@@ -1,10 +1,20 @@
-
+.oculto {
+    display: none;
+}
 .icone {
     float: right;
     width: 17px;
-    margin-left: 10px;
+    margin-left: 12px;
 }
-
+.icone-grande {
+    width: 35px;
+    margin-left: 12px;
+}
+.comandos {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
 .pointer {
     cursor: pointer;
 }

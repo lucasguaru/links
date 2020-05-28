@@ -13,7 +13,17 @@
     <div class="container">
         <div class="header">
             <input class="pesquisa" type="text" ng-model="inputSearch"> <input class="pesquisa" type="button" value="Pesquisar">
-            <input class="adicionar" type="button" value="Adicionar" ng-click="homeCtrl.adicionarItem()">
+        </div>
+        <div class="comandos">
+            <div>
+                <img class="icone-grande pointer" title="Adicionar" ng-click="homeCtrl.adicionarItem()" src="img/adicionar.svg">
+            </div>
+            <div>
+                <img class="icone-grande pointer" title="Importar" ng-click="homeCtrl.importar()" src="img/importar.png">
+            </div>
+            <div>
+                <img class="icone-grande pointer" title="Exportar" ng-click="homeCtrl.exportar()" src="img/exportar.png">
+            </div>
         </div>
         <div class="adicionar">
             <div class="card" ng-if="homeCtrl.emEdicao">
@@ -35,11 +45,16 @@
             </div>
         </div>
         <div class="resultado">
+            <div class="oculto">
+                <input type="text" id="clipboard">
+            </div>
             <div class="card" ng-repeat="link in homeCtrl.listaLinks | filter: inputSearch track by $index">
                 <div class="titulo">
                     <a href="{{link.url}}" target="_blank">{{link.titulo}}</a>
-                    <img class="icone pointer" ng-click="homeCtrl.editar(link)" src="img/editar.png">
-                    <img class="icone pointer" ng-click="homeCtrl.excluir(link)" src="img/excluir.svg">
+
+                    <img class="icone pointer" title="Excluir" ng-click="homeCtrl.excluir(link)" src="img/excluir.svg">
+                    <img class="icone pointer" title="Editar" ng-click="homeCtrl.editar(link)" src="img/editar.png">
+                    <img class="icone pointer" title="Copiar" ng-click="homeCtrl.copiar(link)" src="img/copiar.png">
                 </div>
                 <div class="descricao">{{link.descricao}}</div>
                 <div class="url"><a href="{{link.url}}" target="_blank">{{link.url}}</a></div>
